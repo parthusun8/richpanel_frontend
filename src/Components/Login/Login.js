@@ -30,9 +30,10 @@ function Login({setSelectedPlan}) {
                 localStorage.setItem('name', res.data.name);
                 localStorage.setItem('current_plan', res.data.current_plan);
                 localStorage.setItem('subscriptionId', res.data.subscriptionId);
+                localStorage.setItem('cancelled', res.data.cancelled);
+                localStorage.setItem('planType', res.data.planType);
                 if(res.data.current_plan != "Free"){
                     setSelectedPlan(res.data.plan_details);
-
                     navigate("/currentPlan");
                     return;
                 }

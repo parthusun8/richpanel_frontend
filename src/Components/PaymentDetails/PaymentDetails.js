@@ -68,7 +68,8 @@ function PaymentDetails({selectedPlan}) {
           await Axios.post("updateCurrentPlan", {
               email : localStorage.getItem("email"),
               planName : selectedPlan.planName,
-              subscriptionId : response.data.subscriptionId
+              subscriptionId : response.data.subscriptionId,
+              planType : selectedPlan.planType,
             });
             localStorage.setItem("subscriptionId", response.data.subscriptionId);
 

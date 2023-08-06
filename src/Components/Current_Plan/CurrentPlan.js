@@ -9,12 +9,16 @@ export default function CurrentPlan({plan}) {
     const navigate = useNavigate();
 
     const [active, setActive] = useState(true);
-
+    const [planType, setPlanType] = useState("Monthly");
     useEffect(()=>{
-        console.log("plan", new Date().addMonths(1));
+        console.log("plan", plan);
         if(plan?.planName == null){
             navigate("/plans")
         }
+        console.log(localStorage.getItem("cancelled"));
+        setActive(localStorage.getItem("cancelled") == "false" ? true : false);
+
+        setPlanType(plan.planType == undefined ? localStorage.getItem("planType") : plan.planType);
     }, []);
 
     const printing = () => {
@@ -25,6 +29,7 @@ export default function CurrentPlan({plan}) {
     async function cancelSubs() {
         await Axios.post("cancel", {
             subscriptionId: localStorage.getItem("subscriptionId"),
+            email : localStorage.getItem("email"),
         }).then(() => {
             localStorage.removeItem("subscriptionId");
             setActive(false);
@@ -64,9 +69,10 @@ export default function CurrentPlan({plan}) {
 
             <div>
                 <b className="text-3xl text-black font-bold">
-                    {plan?.planType === "Monthly"
-                        ? plan?.yearlyPrice?.toString()
-                        : plan?.MonthlyPrice?.toString()}
+                {   planType === "Monthly"
+                    ? plan?.MonthlyPrice?.toString()
+                    : plan?.yearlyPrice?.toString()}
+
                 </b>
                 <span className="text-black text-lg font-semibold">
                     {/* {subscription.billingCycle === "yearly" ? "/yr" : "/mt"} */}
@@ -88,7 +94,7 @@ export default function CurrentPlan({plan}) {
                         ></Moment>{" "}
                         and will auto renew on{" "}
                         <Moment
-                              date={plan.planType == "Monthly" ? new Date().addMonths(1) : new Date().addMonths(12)}
+                              date={planType == "Monthly" ? new Date().addMonths(1) : new Date().addMonths(12)}
                             format="MMM Do, YYYY"
                             className="font-semibold"
                             add={{ days: 1 }}
@@ -99,7 +105,7 @@ export default function CurrentPlan({plan}) {
                         Your subscription was cancelled and you will lose access to services
                         on{" "}
                         <Moment
-                              date={plan.planType == "Monthly" ? new Date().addMonths(1) : new Date().addMonths(12)}
+                              date={planType == "Monthly" ? new Date().addMonths(1) : new Date().addMonths(12)}
                             format="MMM Do, YYYY"
                             className="font-semibold"
                         ></Moment>

@@ -4,7 +4,7 @@ import { Routes, Route, Navigate, useNavigate, BrowserRouter } from "react-route
 import Signup from './Components/Signup/Signup';
 import Plans from './Components/Plans/Plans';
 import React, {useState, useEffect} from 'react';
-import Login from './Components/Login/login';
+import Login from './Components/Login/Login';
 import PaymentDetails from './Components/PaymentDetails/PaymentDetails';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';

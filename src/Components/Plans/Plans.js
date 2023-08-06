@@ -31,6 +31,7 @@ function Plans({setSelectedPlan}) {
         console.log("handlePayment called");
         console.log(plans[currentSelected]);
         plans[currentSelected].planType = planType;
+        plans[currentSelected].priceId = planType == "Monthly" ? plans[currentSelected].mId : plans[currentSelected].yId;
         setSelectedPlan(plans[currentSelected]);
         navigate("/payment");
     }

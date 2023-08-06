@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Axios from '../Axios/Axios';
 
-function Login() {
+function Login({setSelectedPlan}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,6 +26,16 @@ function Login() {
             password: password
         }).then((res) => {
             if(res.data.msg === "User logged in successfully"){
+                localStorage.setItem('email', email);
+                localStorage.setItem('name', res.data.name);
+                localStorage.setItem('current_plan', res.data.current_plan);
+
+                if(res.data.current_plan != "Free"){
+                    setSelectedPlan(res.data.plan_details);
+
+                    navigate("/currentPlan");
+                    return;
+                }
                 navigate("/plans");
                 console.log(res.data);
             } else{

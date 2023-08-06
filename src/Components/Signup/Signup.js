@@ -27,6 +27,8 @@ function Signup() {
             password: password
         }).then((res) => {
             if(res.data.msg === "User registered successfully"){
+                localStorage.setItem('email', email);
+                localStorage.setItem('name', name);
                 navigate("/Signin");
                 console.log(res.data);
             } else{

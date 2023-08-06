@@ -43,11 +43,11 @@ function Signup() {
         <form onSubmit={(e) => submitSignup(e)} className="space-y-6">
             <div className="space-y-1 text-sm">
                 <label htmlFor="name" className="block text-black">Name</label>
-                <input type="text" name="name" id="name" placeholder="Manoj Kumar" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" onChange={(e) => setName(e.target.value)}/>
+                <input type="text" name="name" id="name" placeholder="Enter Name" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" onChange={(e) => setName(e.target.value)}/>
             </div>
             <div className="space-y-1 text-sm">
                 <label htmlFor="username" className="block text-black">Email</label>
-                <input type="text" name="email" id="email" placeholder="manoj@richpanel.com" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" onChange={(e) => setEmail(e.target.value)}/>
+                <input type="text" name="email" id="email" placeholder="Enter Email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" onChange={(e) => setEmail(e.target.value)}/>
             </div>
             <div className="space-y-1 text-sm">
                 <label htmlFor="password" className="block text-black">Password</label>

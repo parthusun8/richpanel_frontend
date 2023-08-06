@@ -51,11 +51,11 @@ function Login({setSelectedPlan}) {
         <form onSubmit={(e) => submitLogin(e)} className="space-y-6">
             <div className="space-y-1 text-sm">
                 <label htmlFor="username" className="block text-black">Email</label>
-                <input type="text" name="email" id="email" placeholder="manoj@richpanel.com" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="text" name="email" id="email" placeholder="Enter Email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" value={email} onChange={(e) => setEmail(e.target.value)}/>
             </div>
             <div className="space-y-1 text-sm">
                 <label htmlFor="password" className="block text-black">Password</label>
-                <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" name="password" id="password" placeholder="password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-white text-black focus:dark:border-gray-400" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <div className="flex justify-end text-xs dark:text-gray-400">
                 </div>
             </div>

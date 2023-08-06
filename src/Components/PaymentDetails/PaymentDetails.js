@@ -64,13 +64,13 @@ function PaymentDetails({selectedPlan}) {
           //Sucess
           //Call API to store data in db
 
-          localStorage.setItem("subscriptionId", response.data.subscriptionId);
-
+          
           await Axios.post("updateCurrentPlan", {
-            email : localStorage.getItem("email"),
-            planName : selectedPlan.planName,
-            subscriptionId : response.data.subscriptionId
-          });
+              email : localStorage.getItem("email"),
+              planName : selectedPlan.planName,
+              subscriptionId : response.data.subscriptionId
+            });
+            localStorage.setItem("subscriptionId", response.data.subscriptionId);
 
           navigate("/currentPlan");
         //   alert("Payment Successful! Subscription active.");

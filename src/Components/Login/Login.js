@@ -29,7 +29,7 @@ function Login({setSelectedPlan}) {
                 localStorage.setItem('email', email);
                 localStorage.setItem('name', res.data.name);
                 localStorage.setItem('current_plan', res.data.current_plan);
-
+                localStorage.setItem('subscriptionId', res.data.subscriptionId);
                 if(res.data.current_plan != "Free"){
                     setSelectedPlan(res.data.plan_details);
 
